@@ -8,7 +8,7 @@ import StolenBike from './services/stolenbikesapi.js';
 
 
 function displayStolenBikes(response){
-  if (response) {
+  if (response.bikes) {
     $('.stolenbike').empty();
     for (let i =0; i < response.bikes.length; i++) {
   $('.stolenbike').append(`
@@ -19,10 +19,9 @@ function displayStolenBikes(response){
   }
   } else 
   {
-    $('.showErrors').text(`There was an error: ${response.message}`);
+    $('.showErrors').text(`There was an error: ${response}`);
   }
 }
-
 
 $(document).ready(function() {
   $('#bikes').click(function(){
